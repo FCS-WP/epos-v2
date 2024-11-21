@@ -1,4 +1,8 @@
 // Container form
+.d-none {
+  opacity: 0.3;
+  pointer-events: none;
+}
 .form-wrapper {
   .form-heading-icon {
     position: relative;
@@ -20,6 +24,13 @@
   #get_demo_form {
     display: flex;
     flex-direction: column-reverse;
+    &.submited {
+      .elementor-labels-above,
+      .e-form__indicators--type-number {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
     .e-form__buttons__wrapper__button-next {
       display: none;
     }
@@ -52,6 +63,7 @@
     }
 
     .e-form__indicators.e-form__indicators--type-number {
+      transition: 0.3s linear;
       margin-top: 60px;
       justify-content: flex-end;
       padding-right: 38px;
@@ -120,11 +132,24 @@
             background-color: var(--e-global-color-accent);
             border-radius: 8px 8px 8px 8px;
             padding: 16px 38px 16px 38px;
+            transition: all 0.3s linear;
+            &:hover {
+              background-color: var(--e-global-color-efde536);
+            }
           }
         }
       }
     }
-    //Submit button 
+    .elementor-form-fields-wrapper.elementor-labels-above {
+      order: 2;
+      transition: 0.3s linear;
+    }
+    // Message
+    .elementor-message {
+      order: 3;
+      margin-bottom: 20px;
+    }
+    //Submit button
     // .e-form__buttons.elementor-column{
 
     // }

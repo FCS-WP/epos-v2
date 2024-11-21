@@ -1,25 +1,41 @@
 $(document).ready(function ($) {
-  // Function to handle the button click triggering for a given step
-  function handleStep(stepClass, buttonClass) {
-    const stepButtons = $(`.${stepClass}`)
+  //Trigger next button
+  handleStep1();
+  handleStep2();
+  handle_submit_form();
+  function handleStep1() {
+    const discribes_button = $(".elementor-field-group-industry")
       .children(".elementor-field-subgroup")
       .find("label");
 
-    stepButtons.each((index, ele) => {
+    discribes_button.each((index, ele) => {
       $(ele).on("click", function () {
-        // Trigger the next button click for the current step
-        $(`.${stepClass}`).find(buttonClass).trigger("click");
+        // console.log($(this));
+        $(".elementor-field-group-step_1")
+          .find(".e-form__buttons__wrapper__button-next")
+          .trigger("click");
       });
     });
   }
 
-  // Trigger next button for Step 1 and Step 2
-  handleStep(
-    "elementor-field-group-step_1",
-    ".e-form__buttons__wrapper__button-next"
-  );
-  handleStep(
-    "elementor-field-group-step_2",
-    ".e-form__buttons__wrapper__button-next"
-  );
+  function handleStep2() {
+    const discribes_button = $(".elementor-field-group-increase_sales")
+      .children(".elementor-field-subgroup")
+      .find("label");
+
+    discribes_button.each((index, ele) => {
+      $(ele).on("click", function () {
+        console.log($(this));
+        $(".elementor-field-group-step_2")
+          .find(".e-form__buttons__wrapper__button-next")
+          .trigger("click");
+      });
+    });
+  }
+
+  function handle_submit_form() {
+    $("#get_demo_form ").on("submit", function (e) {
+      $("#get_demo_form").addClass("submited");
+    });
+  }
 });
