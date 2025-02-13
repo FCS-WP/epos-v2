@@ -1,0 +1,243 @@
+// Container form
+.d-none {
+  opacity: 0.3;
+  pointer-events: none;
+}
+#hubspot_form_mapping {
+  display: none !important;
+}
+.form-wrapper {
+  overflow: hidden;
+  .form-heading-icon {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-top: 23px solid var(--e-global-color-efde536);
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      transform: translate(-50%, -4px);
+      z-index: 2;
+    }
+  }
+  // Form
+  #get_demo_form {
+    display: flex;
+    flex-direction: column-reverse;
+    &.submited {
+      .elementor-labels-above,
+      .e-form__indicators--type-number {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
+    .e-form__buttons__wrapper__button-next {
+      display: none;
+    }
+    .e-form__buttons__wrapper__button-previous {
+      position: absolute;
+      bottom: -40px;
+      left: 0px;
+      transform: translateY(100%);
+      background: transparent;
+      color: var(--e-form-steps-indicator-active-primary-color);
+      &::before {
+        margin-right: 10px;
+        // position: relative;
+        content: "\e941";
+        font-family: jkiticon !important;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+    .elementor-field-type-previous {
+      padding: 0 !important;
+    }
+    //Step
+    .e-form__indicators__indicator__separator {
+      display: none !important;
+    }
+
+    .e-form__indicators.e-form__indicators--type-number {
+      transition: 0.3s linear;
+      margin-top: 60px;
+      justify-content: flex-end;
+      padding-right: 38px;
+      .e-form__indicators__indicator {
+        display: none;
+        flex-basis: auto !important;
+        padding: 0 !important;
+        &.e-form__indicators__indicator--state-active,
+        &:last-child {
+          display: flex;
+        }
+        .e-form__indicators__indicator__number {
+          margin: 0px !important ;
+          padding: 0 !important;
+        }
+        &.e-form__indicators__indicator--state-active {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          padding: 0 !important;
+
+          &::before {
+            content: "Step";
+          }
+        }
+        &.e-form__indicators__indicator--state-inactive {
+          position: relative;
+          // display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          padding: 0 !important;
+          &::before {
+            content: "of";
+          }
+        }
+      }
+    }
+    // Step 1
+    .elementor-field-group-school,
+    .elementor-field-group-date_of_birth {
+      display: flex;
+      justify-content: center;
+      label {
+        font-size: 18px;
+        text-align: center;
+      }
+      .elementor-field-subgroup {
+        display: flex;
+        flex-direction: column;
+        .elementor-field-option {
+          input {
+            display: none;
+          }
+          label {
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+            cursor: pointer;
+            font-family: var(--e-global-typography-accent-font-family),
+              Sans-serif;
+            font-size: var(--e-global-typography-accent-font-size);
+            font-weight: var(--e-global-typography-accent-font-weight);
+            color: #ffffff;
+            background-color: var(--e-global-color-accent);
+            border-radius: 8px 8px 8px 8px;
+            padding: 16px 38px 16px 38px;
+            transition: all 0.3s linear;
+            &:hover {
+              background-color: var(--e-global-color-efde536);
+            }
+          }
+        }
+      }
+    }
+    .elementor-form-fields-wrapper.elementor-labels-above {
+      order: 2;
+      transition: 0.3s linear;
+    }
+    // Message
+    .elementor-message {
+      order: 3;
+      margin-bottom: 20px;
+    }
+    //Submit button
+    // .e-form__buttons.elementor-column{
+
+    // }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  #get_demo_form {
+    input {
+      padding: 10px 20px;
+
+      @include tablet {
+        padding: 15px 24px;
+      }
+    }
+    &.waiting-redirect {
+      .elementor-form-fields-wrapper {
+        display: none !important;
+      }
+      .elementor-message {
+        z-index: 2;
+        margin: 0;
+      }
+      // .elementor-message-success {
+      //   display: none;
+        
+      // }
+      &.elementor-form-waiting {
+        &::before {
+          display: block;
+        }
+      }
+      &::before {
+        display: none;
+      }
+    }
+    &.elementor-form-waiting,
+    &.waiting-redirect {
+      pointer-events: none !important;
+      position: relative;
+      &::after {
+        content: "";
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+        z-index: 3;
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #005bb0;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+}
+#contact_us_form {
+  .elementor-field-group-consent {
+    input {
+      @include only-mobile {
+        padding: 8px;
+        border-radius: 2px;
+      }
+    }
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+}
