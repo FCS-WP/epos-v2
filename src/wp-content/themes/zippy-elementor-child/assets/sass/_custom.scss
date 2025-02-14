@@ -1,0 +1,247 @@
+.pricing-custom {
+  ul li {
+    .elementor-price-list-header {
+      padding: 8px 12px;
+    }
+  }
+  ul li:nth-child(2n-1) {
+    .elementor-price-list-header {
+      background: #eff7ff;
+      border-radius: 8px;
+    }
+  }
+  ul li:nth-child(5) {
+    .elementor-price-list-price {
+      color: var(--e-global-color-secondary);
+    }
+  }
+}
+
+.gallery-custom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+//busuness map
+.business-map {
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.hotspot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #102870;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.pulse{
+&::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  animation: jkit-ripple 3s infinite;
+}
+}
+
+.info-box-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  max-width: 100%;
+  height: 350px;
+}
+
+.info-box {
+  width: 100%;
+  position: relative;
+}
+
+.info-title {
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+#supermarket .info-title {
+  background: #cacce7;
+}
+
+#inventory .info-title {
+  background: #dde7d1;
+}
+
+#omnichannel .info-title {
+  background: #feeed1;
+}
+
+#business .info-title {
+  background: #cacce7;
+}
+
+#customers .info-title {
+  background: #dde7d1;
+}
+
+#newcustomers .info-title {
+  background: #feeed1;
+}
+
+.info-content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 5px;
+    li {
+      margin-bottom:0;
+      border-bottom: 1px solid #fbefef;
+      font-size: 14px;
+      padding: 5px;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.hotspot[data-target="supermarket"] {
+  background-color: #3d56a6;
+  &::before {
+    background-color: rgba(61, 85, 166, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 120px;
+    right: 50%;
+    top: 50%;
+    height: 270px;
+    position: absolute;
+    border-top: 2px dashed #3d56a6;
+    border-left: 2px dashed #3d56a6;
+  }
+}
+
+.hotspot[data-target="inventory"] {
+  background-color: #76aa4c;
+  &::before {
+    background-color: rgba(118, 170, 76, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 220px;
+    right: 50%;
+    top: 50%;
+    height: 450px;
+    position: absolute;
+    border-top: 2px dashed #76aa4c;
+    border-left: 2px dashed #76aa4c;
+  }
+}
+
+.hotspot[data-target="omnichannel"] {
+  background-color: #f9bc2f;
+  &::before {
+    background-color: rgba(249, 188, 47, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 65px;
+    left: 50%;
+    top: 50%;
+    height: 98px;
+    position: absolute;
+    border-top: 2px dashed #f9bc2f;
+    border-right: 2px dashed #f9bc2f;
+  }
+}
+
+.hotspot[data-target="business"] {
+  background-color: #a37ab5;
+  &::before {
+    background-color: rgba(163, 122, 181, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 65px;
+    left: 50%;
+    top: 50%;
+    height: 255px;
+    position: absolute;
+    border-top: 2px dashed #a37ab5;
+    border-right: 2px dashed #a37ab5;
+  }
+}
+
+.hotspot[data-target="customers"] {
+  background-color: #76aa4c;
+  &::before {
+    background-color: rgba(118, 170, 76, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 1px;
+    left: 50%;
+    top: 50%;
+    height: 185px;
+    position: absolute;
+    border-top: 2px dashed #76aa4c;
+    border-left: 2px dashed #76aa4c;
+  }
+}
+
+.hotspot[data-target="newcustomers"] {
+  background-color: #f9bc2f;
+  &::before {
+    background-color: rgba(249, 188, 47, 0.66);
+  }
+  &::after {
+    content: "";
+    width: 1px;
+    left: 50%;
+    top: 50%;
+    height: 270px;
+    position: absolute;
+    border-top: 2px dashed #f9bc2f;
+    border-left: 2px dashed #f9bc2f;
+  }
+}
+
+
+
+.search-post-custom{
+  
+}

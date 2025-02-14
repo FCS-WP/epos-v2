@@ -24,8 +24,11 @@ if (! function_exists('elementor_theme_do_location') || ! elementor_theme_do_loc
 ?>
 
 <?php wp_footer(); ?>
+<button class="back-to-top" type="button">
+	
+</button>
 <!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/48223765.js"></script>
+<!-- <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/48223765.js"></script> -->
 <!-- End of HubSpot Embed Code -->
 </body>
 

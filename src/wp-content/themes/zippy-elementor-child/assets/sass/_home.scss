@@ -1,0 +1,31 @@
+.logo-white img {
+  filter: brightness(0) invert(1);
+}
+.testimonial-home {
+  .comment-content {
+    min-height: 140px;
+  }
+}
+.service-tabs {
+  .elementor-widget-jkit_icon_box {
+    .icon-box {
+      p.title {
+        min-height: 50px;
+        margin-bottom: 10px;
+      }
+    } 
+  }
+}
+
+.service-tabs .two-line .icon-box p.title {
+  @include tablet {
+    width: 110px;
+  }
+}
+@include only-mobile {
+  .two-line-mobile .title {
+    padding: 0px 15px !important;
+  }
+}
+
+
