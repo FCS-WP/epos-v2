@@ -4,7 +4,7 @@ $(document).ready(function ($) {
   handleStep2();
   handle_submit_form();
   backToTop();
-  hanleHotspot();
+  handleHotspot();
   function handleStep1() {
     const discribes_button = $(".elementor-field-group-school")
       .children(".elementor-field-subgroup")
@@ -90,20 +90,46 @@ $(document).ready(function ($) {
       // }, 1000);
     });
   }
-  function hanleHotspot() {
-    $(".hotspot").on("click", function () {
-      let targetId = $(this).data("target");
-      toggleContent(targetId);
+  function handleHotspot() {
+    const $hotspots = $(".hotspot-wrapper");
+    const $prevButton = $(".nav-button.prev");
+    const $nextButton = $(".nav-button.next");
+    const $mobileInfoBox = $(".mobile-info-box .info-box-content");
+    let currentIndex = 0;
+
+    function showHotspot(index) {
+      $(".hotspot-wrapper, .info-box").removeClass("active");
+
+      const $newHotspot = $hotspots.eq(index);
+      const targetId = $newHotspot.find(".hotspot-icon").data("target");
+      const $targetBox = $("#" + targetId);
+
+      if ($newHotspot.length && $targetBox.length) {
+        $newHotspot.addClass("active");
+        $targetBox.addClass("active");
+
+        if ($(window).width() <= 1024) {
+          $mobileInfoBox.html($targetBox.html()).addClass("active");
+        }
+      }
+    }
+
+    $prevButton.on("click", function () {
+      currentIndex = (currentIndex - 1 + $hotspots.length) % $hotspots.length;
+      showHotspot(currentIndex);
     });
 
-    $(".info-title").on("click", function () {
-      let targetId = $(this).parent().attr("id");
-      toggleContent(targetId);
+    $nextButton.on("click", function () {
+      currentIndex = (currentIndex + 1) % $hotspots.length;
+      showHotspot(currentIndex);
     });
-  }
-  function toggleContent(id) {
-    let content = $("#" + id + " .info-content");
-    $(".info-content").not(content).removeClass("show");
-    content.toggleClass("show");
+
+    $hotspots.on("click", function (event) {
+      event.stopPropagation();
+      currentIndex = $hotspots.index(this);
+      showHotspot(currentIndex);
+    });
+
+    showHotspot(currentIndex);
   }
 });
