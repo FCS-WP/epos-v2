@@ -103,8 +103,9 @@ $(document).ready(function ($) {
       const $newHotspot = $hotspots.eq(index);
       const targetId = $newHotspot.find(".hotspot-icon").data("target");
       const $targetBox = $("#" + targetId);
-
-      if ($newHotspot.length && $targetBox.length) {
+         console.log($newHotspot, $targetBox);
+         
+      if ($newHotspot.length) {
         $newHotspot.addClass("active");
         $targetBox.addClass("active");
 
