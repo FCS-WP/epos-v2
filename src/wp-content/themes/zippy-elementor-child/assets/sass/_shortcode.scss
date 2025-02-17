@@ -40,6 +40,7 @@ $color_1: #001a32;
   opacity: 1;
   transform: scale(1);
   z-index: 8 !important;
+  pointer-events: none;
 }
 .hotspot-icon {
   cursor: pointer;
@@ -47,7 +48,7 @@ $color_1: #001a32;
 }
 .info-box {
   position: absolute;
-  bottom: 100%;
+  bottom: 105%;
   left: 50%;
   transform: translateX(-50%);
   background: white;
@@ -73,6 +74,18 @@ $color_1: #001a32;
         border-bottom: none;
       }
     }
+  }
+}
+.hotspot-inventory {
+  .info-box {
+    bottom: -20%;
+    left: 100%;
+  }
+}
+.hotspot-newcustomers {
+  .info-box {
+    bottom: 70%;
+    left: -30%;
   }
 }
 .info-box-content {
@@ -105,9 +118,10 @@ $color_1: #001a32;
   right: 0;
   .nav-button {
     border: 0;
-    img{
-        margin-top: 5px;
-        width: 60%;
+    padding: 8px !important;
+    img {
+      margin-top: 5px;
+      width: 60%;
     }
   }
 }
@@ -138,6 +152,7 @@ $color_1: #001a32;
       background: white;
     }
   }
+  //Retail
   .hotspot-supermarket {
     top: 10% !important;
     img {
@@ -171,6 +186,39 @@ $color_1: #001a32;
   .hotspot-newcustomers {
     top: 17% !important;
   }
+  //
+  //F&B page
+  .fb-point-of-sale {
+    top: 0 !important;
+    img {
+      width: 75%;
+    }
+  }
+  .fb-food-delivery {
+    top: 33% !important;
+    left: 27% !important;
+    img {
+      width: 80%;
+    }
+  }
+  .fb-back-of-house {
+    top: 12% !important;
+    left: 37% !important;
+    img {
+      width: 70%;
+    }
+  }
+  .fb-exitsting-customers {
+    top: 16% !important;
+    left: 64% !important;
+    img {
+      width: 70%;
+    }
+  }
+  .fb-new-customers {
+    top: 5% !important;
+    left: 76% !important;
+  }
 }
 @media screen and (max-width: 768px) {
   .nav-button-container {
@@ -193,6 +241,7 @@ $color_1: #001a32;
   .info-box-content.active {
     display: block;
   }
+  //retail page
   .hotspot-supermarket {
     top: 7% !important;
     img {
@@ -226,6 +275,39 @@ $color_1: #001a32;
   .hotspot-newcustomers {
     top: 9% !important;
   }
+  //
+  //F&B page
+  .fb-point-of-sale {
+    top: 0 !important;
+    img {
+      width: 45%;
+    }
+  }
+  .fb-food-delivery {
+    top: 18% !important;
+    left: 26% !important;
+    img {
+      width: 30%;
+    }
+  }
+  .fb-back-of-house {
+    top: 5% !important;
+    left: 37% !important;
+    img {
+      width: 52%;
+    }
+  }
+  .fb-exitsting-customers {
+    top: 8% !important;
+    left: 62% !important;
+    img {
+      width: 75%;
+    }
+  }
+  .fb-new-customers {
+    top: 3% !important;
+    left: 75% !important;
+  }
 }
 @media screen and (width: 768px) and (height: 1024px) {
   .nav-button-container {
@@ -248,6 +330,7 @@ $color_1: #001a32;
   .info-box-content.active {
     display: block;
   }
+  //retail
   .hotspot-supermarket {
     top: 11% !important;
     img {
@@ -281,6 +364,39 @@ $color_1: #001a32;
   .hotspot-newcustomers {
     top: 15% !important;
     left: 72% !important;
+  }
+  //
+  //F&B page
+  .fb-point-of-sale {
+    top: 0 !important;
+    img {
+      width: 55%;
+    }
+  }
+  .fb-food-delivery {
+    top: 29% !important;
+    left: 27% !important;
+    img {
+      width: 60%;
+    }
+  }
+  .fb-back-of-house {
+    top: 10% !important;
+    left: 37% !important;
+    img {
+      width: 55%;
+    }
+  }
+  .fb-exitsting-customers {
+    top: 13% !important;
+    left: 64% !important;
+    img {
+      width: 70%;
+    }
+  }
+  .fb-new-customers {
+    top: 5% !important;
+    left: 76% !important;
   }
 }
 @media screen and (width: 820px) and (height: 1180px) {
@@ -304,6 +420,7 @@ $color_1: #001a32;
   .info-box-content.active {
     display: block;
   }
+  //retail
   .hotspot-supermarket {
     top: 11% !important;
     img {
@@ -337,5 +454,38 @@ $color_1: #001a32;
   .hotspot-newcustomers {
     top: 15% !important;
     left: 72% !important;
+  }
+  //
+  //F&B page
+  .fb-point-of-sale {
+    top: 0 !important;
+    img {
+      width: 55%;
+    }
+  }
+  .fb-food-delivery {
+    top: 29% !important;
+    left: 27% !important;
+    img {
+      width: 60%;
+    }
+  }
+  .fb-back-of-house {
+    top: 10% !important;
+    left: 37% !important;
+    img {
+      width: 55%;
+    }
+  }
+  .fb-exitsting-customers {
+    top: 13% !important;
+    left: 64% !important;
+    img {
+      width: 70%;
+    }
+  }
+  .fb-new-customers {
+    top: 5% !important;
+    left: 76% !important;
   }
 }
