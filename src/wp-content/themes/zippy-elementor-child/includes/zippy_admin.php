@@ -5,15 +5,16 @@
  *  Removing Items From the Admin Bar
  */
 add_action('wp_before_admin_bar_render', 'shin_wp_admin_bar_remove', 0);
-function shin_wp_admin_bar_remove() {
+function shin_wp_admin_bar_remove()
+{
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
     $wp_admin_bar->remove_menu('updates');
     $wp_admin_bar->remove_menu('comments');
-    
-	// $wp_admin_bar->remove_menu('customize');
-	// $wp_admin_bar->remove_menu('customize-background');
-	// $wp_admin_bar->remove_menu('customize-header');
+
+    // $wp_admin_bar->remove_menu('customize');
+    // $wp_admin_bar->remove_menu('customize-background');
+    // $wp_admin_bar->remove_menu('customize-header');
 }
 
 /*
@@ -23,7 +24,7 @@ function shin_wp_admin_bar_remove() {
 add_action('admin_init', function () {
     // Redirect any user trying to access comments page
     global $pagenow;
-    
+
     if ($pagenow === 'edit-comments.php') {
         wp_redirect(admin_url());
         exit;
@@ -58,3 +59,9 @@ add_action('init', function () {
         remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
     }
 });
+
+// add_action('wp_footer', function () {
+//     echo '<a href="https://api.whatsapp.com/send/?phone=6580109228&text&type=phone_number&app_absent=0" target="_blank" id="epos-whatsapp" class="epos-whatsapp-icon">
+//         <img src="' . THEME_URL . '-child/assets/icons/icon-contact.png" alt="to EPOS WhatsApp Chat" width="50" height="50">
+//     </a>';
+// });

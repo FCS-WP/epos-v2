@@ -7,7 +7,6 @@ add_shortcode('buttons_categories', 'butons_categories_callback');
 
 function butons_categories_callback()
 {
-    $categories = get_categories(array('hide_empty' => true, 'orderby' => 'count'));
 
 ?>
 
@@ -15,7 +14,7 @@ function butons_categories_callback()
         <div class="wrapper-button">
             <?php
             wp_list_categories(array(
-                'show_option_all' => 'All Articles',
+                // 'show_option_all' => 'All Blog',
                 'class' => 'post-category flex',
                 'show_count' => true,
                 'title_li' => ''
@@ -86,7 +85,7 @@ function hotspot_business_map_shortcode($atts)
                         <div class="info-title">Omnichannel Retail</div>
                         <div class="info-content">
                             <ul>
-                                <li>Brand.com Ecommerce Store</li>
+								<li>Brand.com <br>Ecommerce Store</li>
                                 <li>EPOS Ecommerce</li>
                                 <li>Marketplace Management</li>
                             </ul>
@@ -104,6 +103,8 @@ function hotspot_business_map_shortcode($atts)
                                 <li>Data Analytics</li>
                                 <li>AI Surveillance</li>
                                 <li>ERP Integration</li>
+								<li>EPOS ERP</li>
+								<li>Mall Integration</li>
                             </ul>
                         </div>
                     </div>
@@ -121,7 +122,7 @@ function hotspot_business_map_shortcode($atts)
                         </div>
                     </div>
                 </div>
-                <div class="hotspot-wrapper hotspot-newcustomers" style="top: 29%; left: 75%; z-index: 4;">
+                <div class="hotspot-wrapper hotspot-newcustomers" style="top: 29%; left: 75%; z-index: 1;">
                     <img class="hotspot-icon newcustomers" src="http://epos.theshin.info/possystem/wp-content/uploads/2025/02/6.-New-Customers-1-1.png" data-target="newcustomers">
                     <div class="info-box" id="newcustomers">
                         <div class="info-title">New Customers</div>
@@ -143,6 +144,7 @@ function hotspot_business_map_shortcode($atts)
             </div>
         </div>
     </div>
+
 <?php
     return ob_get_clean();
 }
