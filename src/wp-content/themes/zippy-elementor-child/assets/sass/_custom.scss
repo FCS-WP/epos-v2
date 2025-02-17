@@ -24,19 +24,24 @@
 }
 
 .search-post-custom {
+  .e-search-results {
+    width: 500px !important;
+  }
 }
 .archive.category {
   .post-categories-tab {
-    .cat-item-all {
-      padding: 0px 30px 30px 30px;
-      border-bottom: 1px solid #0e0b3d14 !important;
-      font-size: 20px;
-      color: #0e0b3d75 !important;
-      min-width: 160px;
-      text-align: center;
-      transition: all 0.1s linear;
-      &:hover {
-        color: var(--e-global-color-accent);
+    .wrapper-button {
+      .cat-item:first-child {
+        padding: 0px 30px 30px 30px;
+        border-bottom: 1px solid #0e0b3d14 !important;
+        font-size: 20px;
+        color: #0e0b3d75 !important;
+        min-width: 160px;
+        text-align: center;
+        transition: all 0.1s linear;
+        &:hover {
+          color: var(--e-global-color-accent);
+        }
       }
     }
   }
@@ -45,7 +50,7 @@
   .post-categories-tab {
     .wrapper-button-categories {
       .wrapper-button {
-        .cat-item-all {
+        .cat-item:first-child {
           color: var(--e-global-color-accent);
           border-bottom: 2px solid var(--e-global-color-accent);
         }
@@ -60,10 +65,8 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 4px;
       list-style: none;
       padding: 4px;
-      border-radius: 8px;
 
       .cat-item-all,
       .cat-item {
@@ -100,6 +103,48 @@
         font-weight: var(--e-global-typography-f3e50b7-font-weight);
         line-height: var(--e-global-typography-f3e50b7-line-height);
       }
+    }
+  }
+}
+
+.mai-testimonial {
+  .elementor-testimonial__text {
+    // min-height: 65px;
+  }
+  .elementor-testimonial__name {
+    font-style: normal !important;
+  }
+  .elementor-testimonial__title {
+    font-style: normal !important;
+  }
+  .elementor-main-swiper {
+    width: 100% !important;
+  }
+  .elementor-testimonial__cite{
+    margin-top: 15px !important;
+  }
+  .elementor-swiper-button-prev,
+  .elementor-swiper-button-next {
+    opacity: 1 !important;
+    top: -60px !important;
+    background-color: var(--e-global-color-accent);
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 100%;
+  }
+  .elementor-swiper-button-next {
+    right: 0px !important;
+    &.disable {
+      background: #717171;
+      pointer-events: none;
+    }
+  }
+  .elementor-swiper-button-prev {
+    right: 60px !important;
+    left: auto !important;
+    &.disable {
+      background: #717171;
+      pointer-events: none;
     }
   }
 }

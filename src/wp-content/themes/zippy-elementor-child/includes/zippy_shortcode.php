@@ -7,7 +7,6 @@ add_shortcode('buttons_categories', 'butons_categories_callback');
 
 function butons_categories_callback()
 {
-    $categories = get_categories(array('hide_empty' => true, 'orderby' => 'count'));
 
 ?>
 
@@ -15,7 +14,7 @@ function butons_categories_callback()
         <div class="wrapper-button">
             <?php
             wp_list_categories(array(
-                'show_option_all' => 'All Articles',
+                // 'show_option_all' => 'All Blog',
                 'class' => 'post-category flex',
                 'show_count' => true,
                 'title_li' => ''
@@ -80,6 +79,7 @@ function hotspot_business_map_shortcode()
             </div>
         </div>
     </div>
+
 <?php
     return ob_get_clean();
 }
