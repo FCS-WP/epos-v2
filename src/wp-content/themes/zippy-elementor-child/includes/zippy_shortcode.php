@@ -39,8 +39,8 @@ function hotspot_business_map_shortcode()
             <img src="<?php echo $background_journey_map['url']; ?>" alt="<?php echo $background_journey_map['alt']; ?>" class="background-image">
             <?php if ($background_journey_map): ?>
                 <div class="nav-button-container">
-                    <button class="nav-button prev"><img src="http://epos.theshin.info/possystem/wp-content/uploads/2025/02/left-arrow.png"></button>
-                    <button class="nav-button next"><img src="http://epos.theshin.info/possystem/wp-content/uploads/2025/02/right-arrow.png"></button>
+                    <button class="nav-button prev"><img src="/wp-content/uploads/2025/02/left-arrow.png"></button>
+                    <button class="nav-button next"><img src="/wp-content/uploads/2025/02/right-arrow.png"></button>
                 </div>
             <?php endif; ?>
 

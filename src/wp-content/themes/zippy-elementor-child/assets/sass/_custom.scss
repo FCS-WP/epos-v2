@@ -120,7 +120,7 @@
   .elementor-main-swiper {
     width: 100% !important;
   }
-  .elementor-testimonial__cite{
+  .elementor-testimonial__cite {
     margin-top: 15px !important;
   }
   .elementor-swiper-button-prev,
@@ -146,5 +146,12 @@
       background: #717171;
       pointer-events: none;
     }
+  }
+}
+.epos-whatsapp-icon {
+  img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
   }
 }
