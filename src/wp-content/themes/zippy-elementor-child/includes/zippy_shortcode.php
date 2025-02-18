@@ -48,7 +48,25 @@ function hotspot_business_map_shortcode()
 
                 <?php foreach ($hotspot_group as $hotspot) : ?>
                     <?php if ($hotspot['image_hotspot']): ?>
-                        <div class="hotspot-wrapper <?php echo $hotspot['class_name_hotspot']; ?>" style="top: <?php echo $hotspot['position_hotspot']['top']; ?>%; left: <?php echo $hotspot['position_hotspot']['left']; ?>%;z-index: <?php echo $hotspot['position_hotspot']['z-index']; ?>;">
+                        <?php
+                        $style = "";
+                        if (!empty($hotspot['position_hotspot']['top'])) {
+                            $style .= "top: " . esc_attr($hotspot['position_hotspot']['top']) . "%; ";
+                        }
+                        if (!empty($hotspot['position_hotspot']['left'])) {
+                            $style .= "left: " . esc_attr($hotspot['position_hotspot']['left']) . "%; ";
+                        }
+                        if (!empty($hotspot['position_hotspot']['right'])) {
+                            $style .= "right: " . esc_attr($hotspot['position_hotspot']['right']) . "%; ";
+                        }
+                        if (!empty($hotspot['position_hotspot']['bottom'])) {
+                            $style .= "bottom: " . esc_attr($hotspot['position_hotspot']['bottom']) . "%; ";
+                        }
+                        if (!empty($hotspot['position_hotspot']['z-index'])) {
+                            $style .= "z-index: " . esc_attr($hotspot['position_hotspot']['z-index']) . "; ";
+                        }
+                        ?>
+                        <div class="hotspot-wrapper <?php echo $hotspot['class_name_hotspot']; ?>" style="<?php echo trim($style); ?>">
                             <img class="hotspot-icon <?php echo $hotspot['class_name_hotspot']; ?>" src="<?php echo $hotspot['image_hotspot']['url']; ?>" data-target="<?php echo $hotspot['class_name_hotspot']; ?>">
                             <?php if ($hotspot['content_hotspot']['title']): ?>
                                 <div class="info-box" id="<?php echo $hotspot['class_name_hotspot']; ?>">
