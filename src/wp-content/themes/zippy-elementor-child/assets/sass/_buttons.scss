@@ -135,10 +135,9 @@ button.back-to-top {
   width: 100%;
 
   @include tablet {
-    right: 30px;
-    bottom: 85px;
+    right: 100px;
     width: auto;
-    bottom: 125px;
+    bottom: 70px;
   }
 }
 
@@ -148,7 +147,6 @@ button.back-to-top {
   border-radius: 30px;
   background-color: rgb(38, 212, 102) !important;
   border: 1px solid #26d466 !important;
-  padding: 15px 30px;
   width: 100%;
   color: #ffffff;
   font: 18px/1 var(--primaryfont-semibold);
@@ -162,11 +160,11 @@ button.back-to-top {
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 0px 62.32px 13.68px rgba(87, 87, 87, 0.11);
-  max-width: 380px;
+  max-width: 350px;
 }
 .wapp-topStripe {
   background: #056055;
-  padding: 20px;
+  padding: 12px;
   color: #fff;
   border-radius: 10px 10px 0 0;
   display: flex;
@@ -185,6 +183,7 @@ button.back-to-top {
   border-radius: 50%;
   margin-right: 15px;
   position: relative;
+  overflow: hidden;
 }
 .wapp-profileLft img,
 .wapp-txtImg {
@@ -194,14 +193,11 @@ button.back-to-top {
   left: 50%;
   content: "";
   display: inline-block;
-  width: 90%;
+  width: 85%;
   height: auto;
-  font: 18px/1 var(--primaryfont-bold);
-  border-radius: 100%;
 }
 .wapp-txtImg {
   width: auto;
-  font: 26px / 1 var(--primaryfont-bold);
   color: #000;
 }
 .wapp-profileRht {
@@ -234,7 +230,7 @@ button.back-to-top {
   background: #e8ded4
     url("https://oweb.zohowebstatic.com/sites/oweb/images/zohobigin/images/wapp-background.jpg");
   padding: 20px 20px 15px;
-  max-height: 300px;
+  max-height: 250px;
   background-size: cover;
   overflow: auto;
 }
@@ -281,7 +277,7 @@ button.back-to-top {
 }
 .wapp-smarttag-btn:hover,
 .wapp-smarttag-btn.active {
-  background: #dcf7c5;
+  background: #dcf7c5 !important;
   border: 1px solid #26d466;
 }
 .wapp-msgdefault {
@@ -297,8 +293,11 @@ button.back-to-top {
 }
 .wapp-btnSection {
   background: #fff;
-  padding: 20px;
+  padding: 12px;
   border-radius: 0 0 10px 10px;
+}
+.wapp-btnSection .wapp-chatCta {
+  padding: 12px 25px;
 }
 
 .wapp-chatCta.medium {
