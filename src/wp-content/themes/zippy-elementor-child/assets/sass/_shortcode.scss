@@ -1,4 +1,4 @@
-$color_1: #001a32;
+$color_1: #102870;
 
 /* Mobile View */
 .business-map {
@@ -39,8 +39,7 @@ $color_1: #001a32;
 .hotspot-wrapper.active {
   opacity: 1;
   transform: scale(1);
-  z-index: 9 !important;
-  pointer-events: none;
+  z-index: 1 !important;
 }
 .hotspot-icon {
   cursor: pointer;
@@ -111,6 +110,7 @@ $color_1: #001a32;
 .info-box.active {
   opacity: 1;
   visibility: visible;
+  z-index: 999;
 }
 .nav-button-container {
   position: absolute;
