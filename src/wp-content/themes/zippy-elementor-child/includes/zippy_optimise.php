@@ -1,6 +1,6 @@
 <?php
 
-add_action('wp_head', 'add_google_script');
+// add_action('wp_head', 'add_google_script');
 
 function add_google_script()
 {

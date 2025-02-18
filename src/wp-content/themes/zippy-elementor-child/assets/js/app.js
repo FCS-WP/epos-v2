@@ -105,8 +105,8 @@ $(document).ready(function ($) {
       const $newHotspot = $hotspots.eq(index);
       const targetId = $newHotspot.find(".hotspot-icon").data("target");
       const $targetBox = $("#" + targetId);
-         console.log($newHotspot, $targetBox);
-         
+      console.log($newHotspot, $targetBox);
+
       if ($newHotspot.length) {
         $newHotspot.addClass("active");
         $targetBox.addClass("active");
@@ -138,67 +138,49 @@ $(document).ready(function ($) {
 
   function handleChangeTitleTestimonial() {
     const sectionTitle = $("#testimonial-title h2");
-    const nextbutton = $(".mai-testimonial .elementor-swiper-button-next");
+    const nextbutton = $("#mai-testimonial .elementor-swiper-button-next");
 
-    const prebutton = $(".mai-testimonial .elementor-swiper-button-prev");
+    const prebutton = $("#mai-testimonial .elementor-swiper-button-prev");
     prebutton.addClass("disable");
 
     nextbutton.on("click", function () {
       prebutton.removeClass("disable");
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(2)
-          .hasClass("swiper-slide-active")
-      ) {
-        sectionTitle.text("Customer Retention");
-        nextbutton.addClass("disable");
-      }
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(4)
-          .hasClass("swiper-slide-active")
-      ) {
-      }
+      nextbutton.addClass("disable");
+      sectionTitle.text("Customer Retention");
     });
 
     prebutton.on("click", function () {
       nextbutton.removeClass("disable");
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(1)
-          .hasClass("swiper-slide-active")
-      ) {
-        sectionTitle.text("Customer Acquisition");
-        prebutton.addClass("disable");
-      }
+      sectionTitle.text("Customer Acquisition");
+      prebutton.addClass("disable");
     });
   }
   function handleChangeTesMobile() {
-    const sectionTitle = $("#testimonial-title-mobile h2");
-    const nextbutton = $(
+    const sectionTitleMB = $("#testimonial-title-mobile h2");
+    const nextbuttonMB = $(
       "#mai-testimonial-mobile .elementor-swiper-button-next"
     );
 
-    const prebutton = $(
+    const prebuttonMB = $(
       "#mai-testimonial-mobile .elementor-swiper-button-prev"
     );
-    prebutton.addClass("disable");
+    prebuttonMB.addClass("disable");
 
-    nextbutton.on("click", function () {
-      prebutton.removeClass("disable");
+    nextbuttonMB.on("click", function () {
+      prebuttonMB.removeClass("disable");
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(4)
           .hasClass("swiper-slide-active")
       ) {
-        nextbutton.addClass("disable");
+        nextbuttonMB.addClass("disable");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(2)
           .hasClass("swiper-slide-active")
       ) {
-        sectionTitle.text("Customer Retention");
+        sectionTitleMB.text("Customer Retention");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
@@ -208,21 +190,21 @@ $(document).ready(function ($) {
       }
     });
 
-    prebutton.on("click", function () {
-      nextbutton.removeClass("disable");
+    prebuttonMB.on("click", function () {
+      nextbuttonMB.removeClass("disable");
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(3)
           .hasClass("swiper-slide-active")
       ) {
-        sectionTitle.text("Customer Acquisition");
+        sectionTitleMB.text("Customer Acquisition");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(1)
           .hasClass("swiper-slide-active")
       ) {
-        prebutton.addClass("disable");
+        prebuttonMB.addClass("disable");
       }
     });
   }
@@ -279,7 +261,7 @@ function whatsappContact({
     </div>
     <div class="wapp-float-btn {{buttonPosition}}">
       <button class="wapp-chatCta epos-whatsapp-icon">
-        <img src="https://epos.theshin.info/possystem/wp-content/themes/zippy-elementor-child/assets/icons/icon-contact.png" alt="to EPOS WhatsApp Chat" width="50" height="50">
+        <img src="https://epos.floatingcube.com/wp-content/themes/zippy-elementor-child/assets/icons/icon-contact.png" alt="to EPOS WhatsApp Chat" width="50" height="50">
       </button>
     </div>
   </div>`;
