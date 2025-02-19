@@ -155,3 +155,13 @@
     object-fit: contain;
   }
 }
+body{
+  &.menu-open{
+    overflow: hidden;
+  }
+}
+.jeg-elementor-kit.jkit-nav-menu{
+.jkit-menu-wrapper{
+  max-width: 100% !important;
+}
+}
