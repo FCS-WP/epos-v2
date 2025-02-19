@@ -7,6 +7,7 @@ $(document).ready(function ($) {
   handleHotspot();
   handleChangeTitleTestimonial();
   handleChangeTesMobile();
+  toggleMenu();
   function handleStep1() {
     const discribes_button = $(".elementor-field-group-school")
       .children(".elementor-field-subgroup")
@@ -105,8 +106,8 @@ $(document).ready(function ($) {
       const $newHotspot = $hotspots.eq(index);
       const targetId = $newHotspot.find(".hotspot-icon").data("target");
       const $targetBox = $("#" + targetId);
-         console.log($newHotspot, $targetBox);
-         
+      console.log($newHotspot, $targetBox);
+
       if ($newHotspot.length) {
         $newHotspot.addClass("active");
         $targetBox.addClass("active");
@@ -135,7 +136,21 @@ $(document).ready(function ($) {
 
     showHotspot(currentIndex);
   }
+  function toggleMenu() {
+    const menuWrapper = $(".jkit-menu-wrapper");
+    const body = $("body");
 
+    if (menuWrapper.hasClass("active")) {
+      body.addClass("menu-open");
+    } else {
+      body.removeClass("menu-open");
+    }
+  }
+  const observer = new MutationObserver(toggleMenu);
+    observer.observe(document.querySelector(".jkit-menu-wrapper"), {
+        attributes: true,
+        attributeFilter: ["class"]
+    });
   function handleChangeTitleTestimonial() {
     const sectionTitle = $("#testimonial-title h2");
     const nextbutton = $(".mai-testimonial .elementor-swiper-button-next");
