@@ -4,17 +4,6 @@
 @import "header";
 @import "custom";
 @import "shortcode";
+// @import "widget_whatsapp";
 
-@keyframes jkit-ripple {
-  70% {
-    -webkit-box-shadow: 0 0 0 18px currentColor;
-    box-shadow: 0 0 0 18px currentColor;
-    opacity: 0;
-  }
 
-  100% {
-    -webkit-box-shadow: 0 0 0 0 currentColor;
-    box-shadow: 0 0 0 0 currentColor;
-    opacity: 0;
-  }
-}

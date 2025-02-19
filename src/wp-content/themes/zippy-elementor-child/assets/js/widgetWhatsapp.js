@@ -31,7 +31,7 @@ function whatsappContact({
 .epos-whatsapp-wa.wapp-chatCta {
   background: #26d466 !important;
   border: #26d466 !important;
-  border-radius: 100%;
+  border-radius: 100% !important;
   bottom: 75px;
   height: 45px;
   right: 25px;
@@ -63,6 +63,9 @@ function whatsappContact({
   bottom: 80px;
   position: fixed;
   right: 20px;
+  z-index: 1;
+}
+.wapp-widgetGrp.active {
   z-index: 999;
 }
 @media (min-width: 768px) {
@@ -75,7 +78,7 @@ function whatsappContact({
   align-items: center;
   background-color: #26d466 !important;
   border: 1px solid #26d466 !important;
-  border-radius: 30px;
+  border-radius: 8px !important;
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -235,8 +238,8 @@ function whatsappContact({
 }
 .wapp-btnSection .wapp-chatCta {
   font-size: 14px;
-  padding: 12px;
   margin: 0;
+  padding: 12px;
 }
 .wapp-chatCta.medium {
   padding: 12px 30px;
@@ -274,7 +277,7 @@ function whatsappContact({
   width: 13px;
 }
 .wapp-float-btn {
-  padding: 40px 0 10px;
+  margin: 40px 0 10px;
   transition: all 0.3s ease;
 }
 .bottom-left,
@@ -365,6 +368,7 @@ function whatsappContact({
     // Append the widget to the body
     document.body.insertAdjacentHTML("beforeend", widgetTemplate);
 
+    const wrapper = document.querySelector(".wapp-widgetGrp");
     const previewSec = document.querySelector(".wapp-preview");
     const floatBtn = document.querySelector(".wapp-float-btn button");
     const closeBtn = document.querySelector(".wapp-widgetClose");
@@ -374,10 +378,12 @@ function whatsappContact({
     // Toggle chat preview
     floatBtn.addEventListener("click", () => {
       previewSec.classList.toggle("is-hidden");
+      wrapper.classList.toggle("active");
     });
 
     closeBtn.addEventListener("click", () => {
       previewSec.classList.add("is-hidden");
+      wrapper.classList.remove("active");
     });
 
     // Event delegation for dynamically generated buttons

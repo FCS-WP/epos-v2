@@ -12,7 +12,7 @@
     z-index: 20;
     background: #26d466 !important;
     border: #26d466 !important;
-    border-radius: 100%;
+    border-radius: 100% !important;
     transition: all 0.2s linear;
     &:hover {
       transform: translateY(-10%);
@@ -23,7 +23,7 @@
       height: 65px;
     }
     @include only-mobile {
-      width: 45px !important;
+      width: 45px;
     }
   }
   svg {
@@ -34,10 +34,12 @@
 }
 .wapp-widgetGrp {
   position: fixed;
-  z-index: 999;
   right: 20px;
   bottom: 80px;
-
+  z-index: 1;
+  &.active {
+    z-index: 999;
+  }
   @include tablet {
     right: 100px;
     bottom: 70px;
@@ -47,7 +49,7 @@
 /* Widget preview section */
 
 .wapp-chatCta {
-  border-radius: 30px;
+  border-radius: 8px !important;
   background-color: rgb(38, 212, 102) !important;
   border: 1px solid #26d466 !important;
   width: 100%;
@@ -220,6 +222,7 @@
 .wapp-btnSection .wapp-chatCta {
   padding: 12px;
   font-size: 14px;
+  margin: 0;
 }
 
 .wapp-chatCta.medium {
@@ -258,7 +261,7 @@
   margin-right: 5px;
 }
 .wapp-float-btn {
-  padding: 40px 0 10px;
+  margin: 40px 0 10px;
   transition: all ease 0.3s;
 }
 // .wapp-float-btn .wapp-chatCta {
