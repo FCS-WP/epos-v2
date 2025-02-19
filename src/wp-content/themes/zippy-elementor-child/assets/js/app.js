@@ -212,7 +212,6 @@ $(document).ready(function ($) {
 
 whatsappContact({
   buttonName: "Start Chat",
-  iconURL: "https://epos.floatingcube.com/wp-content/themes/zippy-elementor-child/assets/icons/icon-contact.png",
   brandImageUrl:
     "https://www.epos.com.sg/wp-content/uploads/2020/01/pos-system.svg",
   brandName: "EPOS POS System",

@@ -4,26 +4,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'admin_menu', 'hello_elementor_settings_page' );
-add_action( 'init', 'hello_elementor_tweak_settings', 0 );
+add_action( 'admin_menu', 'shin_settings_page' );
+add_action( 'init', 'shin_tweak_settings', 0 );
 
 /**
  * Register theme settings page.
  */
-function hello_elementor_settings_page() {
+function shin_settings_page() {
 
 	$menu_hook = '';
 
 	$menu_hook = add_theme_page(
-		esc_html__( 'Hello Theme Settings', 'hello-elementor' ),
+		esc_html__( 'Shin Theme Settings', 'hello-elementor' ),
 		esc_html__( 'Theme Settings', 'hello-elementor' ),
 		'manage_options',
-		'hello-theme-settings',
-		'hello_elementor_settings_page_render'
+		'shin-theme-settings',
+		'shin_settings_page_render'
 	);
 
 	add_action( 'load-' . $menu_hook, function() {
-		add_action( 'admin_enqueue_scripts', 'hello_elementor_settings_page_scripts', 10 );
+		add_action( 'admin_enqueue_scripts', 'shin_settings_page_scripts', 10 );
 	} );
 
 }
@@ -31,7 +31,7 @@ function hello_elementor_settings_page() {
 /**
  * Register settings page scripts.
  */
-function hello_elementor_settings_page_scripts() {
+function shin_settings_page_scripts() {
 
 	$dir = get_template_directory() . '/assets/js';
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -39,7 +39,7 @@ function hello_elementor_settings_page_scripts() {
 	$asset_path = "$dir/hello-admin.asset.php";
 	$asset_url = get_template_directory_uri() . '/assets/js';
 	if ( ! file_exists( $asset_path ) ) {
-		throw new \Error( 'You need to run `npm run build` for the "hello-theme" first.' );
+		throw new \Error( 'You need to run `npm run build` for the "shin-theme" first.' );
 	}
 	$script_asset = require( $asset_path );
 
@@ -101,7 +101,7 @@ function hello_elementor_settings_page_scripts() {
 /**
  * Render settings page wrapper element.
  */
-function hello_elementor_settings_page_render() {
+function shin_settings_page_render() {
 	?>
 	<div id="hello-elementor-settings"></div>
 	<?php
@@ -110,9 +110,9 @@ function hello_elementor_settings_page_render() {
 /**
  * Theme tweaks & settings.
  */
-function hello_elementor_tweak_settings() {
+function shin_tweak_settings() {
 
-	$settings_group = 'hello_elementor_settings';
+	$settings_group = 'shin_settings';
 
 	$settings = [
 		'DESCRIPTION_META_TAG' => '_description_meta_tag',
@@ -123,14 +123,14 @@ function hello_elementor_tweak_settings() {
 		'HELLO_THEME' => '_hello_theme',
 	];
 
-	hello_elementor_register_settings( $settings_group, $settings );
-	hello_elementor_render_tweaks( $settings_group, $settings );
+	shin_register_settings( $settings_group, $settings );
+	shin_render_tweaks( $settings_group, $settings );
 }
 
 /**
  * Register theme settings.
  */
-function hello_elementor_register_settings( $settings_group, $settings ) {
+function shin_register_settings( $settings_group, $settings ) {
 
 	foreach ( $settings as $setting_key => $setting_value ) {
 		register_setting(
@@ -149,7 +149,7 @@ function hello_elementor_register_settings( $settings_group, $settings ) {
 /**
  * Run a tweek only if the user requested it.
  */
-function hello_elementor_do_tweak( $setting, $tweak_callback ) {
+function shin_do_tweak( $setting, $tweak_callback ) {
 
 	$option = get_option( $setting );
 	if ( isset( $option ) && ( 'true' === $option ) && is_callable( $tweak_callback ) ) {
@@ -161,30 +161,30 @@ function hello_elementor_do_tweak( $setting, $tweak_callback ) {
 /**
  * Render theme tweaks.
  */
-function hello_elementor_render_tweaks( $settings_group, $settings ) {
+function shin_render_tweaks( $settings_group, $settings ) {
 
-	hello_elementor_do_tweak( $settings_group . $settings['DESCRIPTION_META_TAG'], function() {
-		remove_action( 'wp_head', 'hello_elementor_add_description_meta_tag' );
+	shin_do_tweak( $settings_group . $settings['DESCRIPTION_META_TAG'], function() {
+		remove_action( 'wp_head', 'shin_add_description_meta_tag' );
 	} );
 
-	hello_elementor_do_tweak( $settings_group . $settings['SKIP_LINK'], function() {
-		add_filter( 'hello_elementor_enable_skip_link', '__return_false' );
+	shin_do_tweak( $settings_group . $settings['SKIP_LINK'], function() {
+		add_filter( 'shin_enable_skip_link', '__return_false' );
 	} );
 
-	hello_elementor_do_tweak( $settings_group . $settings['HEADER_FOOTER'], function() {
-		add_filter( 'hello_elementor_header_footer', '__return_false' );
+	shin_do_tweak( $settings_group . $settings['HEADER_FOOTER'], function() {
+		add_filter( 'shin_header_footer', '__return_false' );
 	} );
 
-	hello_elementor_do_tweak( $settings_group . $settings['PAGE_TITLE'], function() {
-		add_filter( 'hello_elementor_page_title', '__return_false' );
+	shin_do_tweak( $settings_group . $settings['PAGE_TITLE'], function() {
+		add_filter( 'shin_page_title', '__return_false' );
 	} );
 
-	hello_elementor_do_tweak( $settings_group . $settings['HELLO_STYLE'], function() {
-		add_filter( 'hello_elementor_enqueue_style', '__return_false' );
+	shin_do_tweak( $settings_group . $settings['HELLO_STYLE'], function() {
+		add_filter( 'shin_enqueue_style', '__return_false' );
 	} );
 
-	hello_elementor_do_tweak( $settings_group . $settings['HELLO_THEME'], function() {
-		add_filter( 'hello_elementor_enqueue_theme_style', '__return_false' );
+	shin_do_tweak( $settings_group . $settings['HELLO_THEME'], function() {
+		add_filter( 'shin_enqueue_theme_style', '__return_false' );
 	} );
 
 }
