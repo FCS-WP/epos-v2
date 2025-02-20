@@ -8,9 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register Site Settings Controls.
  */
 
-add_action( 'elementor/init', 'hello_elementor_settings_init' );
+add_action( 'elementor/init', 'shin_settings_init' );
 
-function hello_elementor_settings_init() {
+function shin_settings_init() {
 	if ( ! hello_header_footer_experiment_active() ) {
 		return;
 	}
@@ -19,7 +19,7 @@ function hello_elementor_settings_init() {
 	require 'settings/settings-footer.php';
 
 	add_action( 'elementor/kit/register_tabs', function( \Elementor\Core\Kits\Documents\Kit $kit ) {
-		if ( ! hello_elementor_display_header_footer() ) {
+		if ( ! shin_display_header_footer() ) {
 			return;
 		}
 
@@ -36,21 +36,21 @@ function hello_elementor_settings_init() {
  * @param  string $setting_id
  * @return string|array same as the Elementor internal function does.
  */
-function hello_elementor_get_setting( $setting_id ) {
-	global $hello_elementor_settings;
+function shin_get_setting( $setting_id ) {
+	global $shin_settings;
 
 	$return = '';
 
-	if ( ! isset( $hello_elementor_settings['kit_settings'] ) ) {
+	if ( ! isset( $shin_settings['kit_settings'] ) ) {
 		$kit = \Elementor\Plugin::$instance->kits_manager->get_active_kit();
-		$hello_elementor_settings['kit_settings'] = $kit->get_settings();
+		$shin_settings['kit_settings'] = $kit->get_settings();
 	}
 
-	if ( isset( $hello_elementor_settings['kit_settings'][ $setting_id ] ) ) {
-		$return = $hello_elementor_settings['kit_settings'][ $setting_id ];
+	if ( isset( $shin_settings['kit_settings'][ $setting_id ] ) ) {
+		$return = $shin_settings['kit_settings'][ $setting_id ];
 	}
 
-	return apply_filters( 'hello_elementor_' . $setting_id, $return );
+	return apply_filters( 'shin_' . $setting_id, $return );
 }
 
 /**
@@ -62,7 +62,7 @@ function hello_elementor_get_setting( $setting_id ) {
  * @return string|array same as the Elementor internal function does.
  */
 function hello_show_or_hide( $setting_id ) {
-	return ( 'yes' === hello_elementor_get_setting( $setting_id ) ? 'show' : 'hide' );
+	return ( 'yes' === shin_get_setting( $setting_id ) ? 'show' : 'hide' );
 }
 
 /**
@@ -73,19 +73,19 @@ function hello_show_or_hide( $setting_id ) {
 function hello_get_header_layout_class() {
 	$layout_classes = [];
 
-	$header_layout = hello_elementor_get_setting( 'hello_header_layout' );
+	$header_layout = shin_get_setting( 'hello_header_layout' );
 	if ( 'inverted' === $header_layout ) {
 		$layout_classes[] = 'header-inverted';
 	} elseif ( 'stacked' === $header_layout ) {
 		$layout_classes[] = 'header-stacked';
 	}
 
-	$header_width = hello_elementor_get_setting( 'hello_header_width' );
+	$header_width = shin_get_setting( 'hello_header_width' );
 	if ( 'full-width' === $header_width ) {
 		$layout_classes[] = 'header-full-width';
 	}
 
-	$header_menu_dropdown = hello_elementor_get_setting( 'hello_header_menu_dropdown' );
+	$header_menu_dropdown = shin_get_setting( 'hello_header_menu_dropdown' );
 	if ( 'tablet' === $header_menu_dropdown ) {
 		$layout_classes[] = 'menu-dropdown-tablet';
 	} elseif ( 'mobile' === $header_menu_dropdown ) {
@@ -94,7 +94,7 @@ function hello_get_header_layout_class() {
 		$layout_classes[] = 'menu-dropdown-none';
 	}
 
-	$hello_header_menu_layout = hello_elementor_get_setting( 'hello_header_menu_layout' );
+	$hello_header_menu_layout = shin_get_setting( 'hello_header_menu_layout' );
 	if ( 'dropdown' === $hello_header_menu_layout ) {
 		$layout_classes[] = 'menu-layout-dropdown';
 	}
@@ -108,7 +108,7 @@ function hello_get_header_layout_class() {
  * @return string
  */
 function hello_get_footer_layout_class() {
-	$footer_layout = hello_elementor_get_setting( 'hello_footer_layout' );
+	$footer_layout = shin_get_setting( 'hello_footer_layout' );
 
 	$layout_classes = [];
 
@@ -118,13 +118,13 @@ function hello_get_footer_layout_class() {
 		$layout_classes[] = 'footer-stacked';
 	}
 
-	$footer_width = hello_elementor_get_setting( 'hello_footer_width' );
+	$footer_width = shin_get_setting( 'hello_footer_width' );
 
 	if ( 'full-width' === $footer_width ) {
 		$layout_classes[] = 'footer-full-width';
 	}
 
-	if ( hello_elementor_get_setting( 'hello_footer_copyright_display' ) && '' !== hello_elementor_get_setting( 'hello_footer_copyright_text' ) ) {
+	if ( shin_get_setting( 'hello_footer_copyright_display' ) && '' !== shin_get_setting( 'hello_footer_copyright_text' ) ) {
 		$layout_classes[] = 'footer-has-copyright';
 	}
 
@@ -139,10 +139,10 @@ add_action( 'elementor/editor/after_enqueue_scripts', function() {
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_enqueue_script(
-		'hello-theme-editor',
+		'shin-theme-editor',
 		get_template_directory_uri() . '/assets/js/hello-editor' . $suffix . '.js',
 		[ 'jquery', 'elementor-editor' ],
-		HELLO_ELEMENTOR_VERSION,
+		SHIN_VERSION,
 		true
 	);
 
@@ -150,12 +150,12 @@ add_action( 'elementor/editor/after_enqueue_scripts', function() {
 		'hello-editor',
 		get_template_directory_uri() . '/editor' . $suffix . '.css',
 		[],
-		HELLO_ELEMENTOR_VERSION
+		SHIN_VERSION
 	);
 } );
 
 add_action( 'wp_enqueue_scripts', function() {
-	if ( ! hello_elementor_display_header_footer() ) {
+	if ( ! shin_display_header_footer() ) {
 		return;
 	}
 
@@ -166,10 +166,10 @@ add_action( 'wp_enqueue_scripts', function() {
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_enqueue_script(
-		'hello-theme-frontend',
+		'shin-theme-frontend',
 		get_template_directory_uri() . '/assets/js/hello-frontend' . $suffix . '.js',
 		[],
-		HELLO_ELEMENTOR_VERSION,
+		SHIN_VERSION,
 		true
 	);
 
@@ -187,9 +187,9 @@ function hello_get_header_display() {
 
 	return (
 		$is_editor
-		|| hello_elementor_get_setting( 'hello_header_logo_display' )
-		|| hello_elementor_get_setting( 'hello_header_tagline_display' )
-		|| hello_elementor_get_setting( 'hello_header_menu_display' )
+		|| shin_get_setting( 'hello_header_logo_display' )
+		|| shin_get_setting( 'hello_header_tagline_display' )
+		|| shin_get_setting( 'hello_header_menu_display' )
 	);
 }
 
@@ -203,10 +203,10 @@ function hello_get_footer_display() {
 
 	return (
 		$is_editor
-		|| hello_elementor_get_setting( 'hello_footer_logo_display' )
-		|| hello_elementor_get_setting( 'hello_footer_tagline_display' )
-		|| hello_elementor_get_setting( 'hello_footer_menu_display' )
-		|| hello_elementor_get_setting( 'hello_footer_copyright_display' )
+		|| shin_get_setting( 'hello_footer_logo_display' )
+		|| shin_get_setting( 'hello_footer_tagline_display' )
+		|| shin_get_setting( 'hello_footer_menu_display' )
+		|| shin_get_setting( 'hello_footer_copyright_display' )
 	);
 }
 
@@ -215,9 +215,8 @@ function hello_get_footer_display() {
  */
 add_action( 'elementor/experiments/default-features-registered', function( \Elementor\Core\Experiments\Manager $experiments_manager ) {
 	$experiments_manager->add_feature( [
-		'name' => 'hello-theme-header-footer',
-		'title' => esc_html__( 'Header & Footer', 'hello-elementor' ),
-		'tag' => esc_html__( 'Hello Theme', 'hello-elementor' ),
+		'name' => 'shin-theme-header-footer',
+		'title' => esc_html__( 'Hello Theme Header & Footer', 'hello-elementor' ),
 		'description' => sprintf(
 			'%1$s <a href="%2$s" target="_blank">%3$s</a>',
 			esc_html__( 'Customize and style the builtin Hello Theme’s cross-site header & footer from the Elementor "Site Settings" panel.', 'hello-elementor' ),
@@ -245,5 +244,5 @@ function hello_header_footer_experiment_active() {
 		return false;
 	}
 
-	return (bool) ( \Elementor\Plugin::$instance->experiments->is_feature_active( 'hello-theme-header-footer' ) );
+	return (bool) ( \Elementor\Plugin::$instance->experiments->is_feature_active( 'shin-theme-header-footer' ) );
 }
