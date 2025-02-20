@@ -147,55 +147,73 @@ $(document).ready(function ($) {
     }
   }
   const observer = new MutationObserver(toggleMenu);
-    observer.observe(document.querySelector(".jkit-menu-wrapper"), {
-        attributes: true,
-        attributeFilter: ["class"]
-    });
+  observer.observe(document.querySelector(".jkit-menu-wrapper"), {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
   function handleChangeTitleTestimonial() {
     const sectionTitle = $("#testimonial-title h2");
-    const nextbutton = $("#mai-testimonial .elementor-swiper-button-next");
+    const nextbutton = $(".mai-testimonial .elementor-swiper-button-next");
 
-    const prebutton = $("#mai-testimonial .elementor-swiper-button-prev");
+    const prebutton = $(".mai-testimonial .elementor-swiper-button-prev");
     prebutton.addClass("disable");
 
     nextbutton.on("click", function () {
       prebutton.removeClass("disable");
-      nextbutton.addClass("disable");
-      sectionTitle.text("Customer Retention");
+      if (
+        $(".mai-testimonial .swiper-slide")
+          .eq(2)
+          .hasClass("swiper-slide-active")
+      ) {
+        sectionTitle.text("Customer Retention");
+        nextbutton.addClass("disable");
+      }
+      if (
+        $(".mai-testimonial .swiper-slide")
+          .eq(4)
+          .hasClass("swiper-slide-active")
+      ) {
+      }
     });
 
     prebutton.on("click", function () {
       nextbutton.removeClass("disable");
-      sectionTitle.text("Customer Acquisition");
-      prebutton.addClass("disable");
+      if (
+        $(".mai-testimonial .swiper-slide")
+          .eq(1)
+          .hasClass("swiper-slide-active")
+      ) {
+        sectionTitle.text("Customer Acquisition");
+        prebutton.addClass("disable");
+      }
     });
   }
   function handleChangeTesMobile() {
-    const sectionTitleMB = $("#testimonial-title-mobile h2");
-    const nextbuttonMB = $(
+    const sectionTitle = $("#testimonial-title-mobile h2");
+    const nextbutton = $(
       "#mai-testimonial-mobile .elementor-swiper-button-next"
     );
 
-    const prebuttonMB = $(
+    const prebutton = $(
       "#mai-testimonial-mobile .elementor-swiper-button-prev"
     );
-    prebuttonMB.addClass("disable");
+    prebutton.addClass("disable");
 
-    nextbuttonMB.on("click", function () {
-      prebuttonMB.removeClass("disable");
+    nextbutton.on("click", function () {
+      prebutton.removeClass("disable");
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(4)
           .hasClass("swiper-slide-active")
       ) {
-        nextbuttonMB.addClass("disable");
+        nextbutton.addClass("disable");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(2)
           .hasClass("swiper-slide-active")
       ) {
-        sectionTitleMB.text("Customer Retention");
+        sectionTitle.text("Customer Retention");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
@@ -205,35 +223,22 @@ $(document).ready(function ($) {
       }
     });
 
-    prebuttonMB.on("click", function () {
-      nextbuttonMB.removeClass("disable");
+    prebutton.on("click", function () {
+      nextbutton.removeClass("disable");
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(3)
           .hasClass("swiper-slide-active")
       ) {
-        sectionTitleMB.text("Customer Acquisition");
+        sectionTitle.text("Customer Acquisition");
       }
       if (
         $("#mai-testimonial-mobile .swiper-slide")
           .eq(1)
           .hasClass("swiper-slide-active")
       ) {
-        prebuttonMB.addClass("disable");
+        prebutton.addClass("disable");
       }
     });
   }
-});
-
-whatsappContact({
-  buttonName: "Start Chat",
-  brandImageUrl:
-    "https://www.epos.com.sg/wp-content/uploads/2020/01/pos-system.svg",
-  brandName: "EPOS POS System",
-  brandStatusText: "Typically replies within a day",
-  buttonPosition: "bottom-right",
-  phoneNumber: "6584821888",
-  welcomeMessage: "Hi there! 👋 How can I help you?",
-  prefillMessages: "I am looking for: ",
-  replyOptions: "F&B POS System,Retail POS System,Others,Tech Support",
 });

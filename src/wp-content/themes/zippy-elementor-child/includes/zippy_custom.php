@@ -6,5 +6,5 @@ function shin_scripts()
     $version = time();
 
     // Wiget Whatsapp
-    wp_enqueue_script('wa-scripts-js', THEME_URL . '-child' . '/assets/js/widgetWhatsapp.js', array('jquery'), $version, true);
+    wp_enqueue_script('wa-scripts-js', THEME_URL . '-child' . '/assets/js/widgetWhatsappOrigin.js', array('jquery'), $version, true);
 }
