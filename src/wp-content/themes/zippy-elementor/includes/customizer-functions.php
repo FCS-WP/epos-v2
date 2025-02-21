@@ -82,7 +82,7 @@ function hello_customizer_styles() {
 		'hello-elementor-customizer',
 		get_template_directory_uri() . '/customizer' . $min_suffix . '.css',
 		[],
-		HELLO_ELEMENTOR_VERSION
+		SHIN_VERSION
 	);
 }
 add_action( 'admin_enqueue_scripts', 'hello_customizer_styles' );

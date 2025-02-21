@@ -7,6 +7,16 @@
   }
 }
 .service-tabs {
+  .no-height{
+    .elementor-widget-jkit_icon_box {
+      .icon-box {
+        p.title {
+          min-height: auto;
+          margin-bottom: 10px;
+        }
+      } 
+    }
+  }
   .elementor-widget-jkit_icon_box {
     .icon-box {
       p.title {

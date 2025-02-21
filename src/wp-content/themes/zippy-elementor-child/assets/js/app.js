@@ -153,39 +153,21 @@ $(document).ready(function ($) {
   });
   function handleChangeTitleTestimonial() {
     const sectionTitle = $("#testimonial-title h2");
-    const nextbutton = $(".mai-testimonial .elementor-swiper-button-next");
+    const nextbutton = $("#mai-testimonial .elementor-swiper-button-next");
 
-    const prebutton = $(".mai-testimonial .elementor-swiper-button-prev");
+    const prebutton = $("#mai-testimonial .elementor-swiper-button-prev");
     prebutton.addClass("disable");
 
     nextbutton.on("click", function () {
+      nextbutton.addClass("disable");
       prebutton.removeClass("disable");
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(2)
-          .hasClass("swiper-slide-active")
-      ) {
-        sectionTitle.text("Customer Retention");
-        nextbutton.addClass("disable");
-      }
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(4)
-          .hasClass("swiper-slide-active")
-      ) {
-      }
+      sectionTitle.text("Customer Retention");
     });
 
     prebutton.on("click", function () {
       nextbutton.removeClass("disable");
-      if (
-        $(".mai-testimonial .swiper-slide")
-          .eq(1)
-          .hasClass("swiper-slide-active")
-      ) {
-        sectionTitle.text("Customer Acquisition");
-        prebutton.addClass("disable");
-      }
+      sectionTitle.text("Customer Acquisition");
+      prebutton.addClass("disable");
     });
   }
   function handleChangeTesMobile() {
