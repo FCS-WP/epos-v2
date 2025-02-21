@@ -186,7 +186,7 @@
       }
       // .elementor-message-success {
       //   display: none;
-        
+
       // }
       &.elementor-form-waiting {
         &::before {
@@ -239,6 +239,12 @@
       font-weight: 500;
       font-style: italic;
       color: #717171;
+    }
+  }
+  button[type="submit"] {
+    width: 100%;
+    @include tablet {
+      width: auto;
     }
   }
 }
