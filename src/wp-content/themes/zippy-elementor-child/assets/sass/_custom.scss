@@ -15,6 +15,12 @@
       color: var(--e-global-color-secondary);
     }
   }
+  .elementor-price-list-title {
+    width: 58%;
+    @include tablet {
+      width: 80%;
+    }
+  }
 }
 
 .gallery-custom {
@@ -155,13 +161,14 @@
     object-fit: contain;
   }
 }
-body{
-  &.menu-open{
+body {
+  &.menu-open {
     overflow: hidden;
   }
 }
-.jeg-elementor-kit.jkit-nav-menu{
-.jkit-menu-wrapper{
-  max-width: 100% !important;
+.jeg-elementor-kit.jkit-nav-menu {
+  .jkit-menu-wrapper {
+    max-width: 100% !important;
+  }
 }
-}
+
