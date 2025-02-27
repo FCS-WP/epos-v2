@@ -37,7 +37,7 @@ function whatsappContact({
   right: 25px;
   transition: all 0.2s linear;
   width: 45px;
-  z-index: 20;
+  z-index: 999;
 }
 .epos-whatsapp-wa.wapp-chatCta:hover {
   transform: translateY(-10%);
@@ -66,7 +66,7 @@ function whatsappContact({
   z-index: -1;
 }
 .wapp-widgetGrp.active {
-  z-index: 999;
+  z-index: 998;
 }
 @media (min-width: 768px) {
   .wapp-widgetGrp {
@@ -401,6 +401,19 @@ function whatsappContact({
         whatsappLink.href = `https://api.whatsapp.com/send?phone=${d_phoneNumber}&text=${encodeURIComponent(
           updatedPrefillMsg
         )}`;
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      // Check if the clicked element is NOT inside the popup content
+      if (
+        previewSec &&
+        !event.target.closest(".wapp-widgetGrp") &&
+        !event.target.closest(".epos-whatsapp-wa") &&
+        !previewSec.classList.contains("is-hidden")
+      ) {
+        previewSec.classList.add("is-hidden");
+        wrapper.classList.remove("active");
       }
     });
   });
